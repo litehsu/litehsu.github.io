@@ -9,6 +9,7 @@ export interface ScryfallPrices {
   usd: string | null;
   usd_foil: string | null;
   usd_etched: string | null;
+  tcgplayer_url: string | null;
 }
 
 export interface Variation {

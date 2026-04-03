@@ -92,10 +92,12 @@ export function CardVariation({ entry, scryfallPrices, jpyToUsd, ckPrices }: Car
         {sfPrices === undefined ? (
           <Skeleton variant="text" width={60} />
         ) : marketPrice ? (
-          <Stack spacing={0}>
-            <Typography variant="body2" fontWeight={600}>${marketPrice}</Typography>
-            <Typography variant="caption" color="text.secondary">TCGPlayer</Typography>
-          </Stack>
+          <a href={sfPrices.tcgplayer_url ?? undefined} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Stack spacing={0}>
+              <Typography variant="body2" fontWeight={600} sx={{ '&:hover': { textDecoration: 'underline' } }}>${marketPrice}</Typography>
+              <Typography variant="caption" color="text.secondary">TCGPlayer</Typography>
+            </Stack>
+          </a>
         ) : (
           <Typography variant="caption" color="text.disabled">—</Typography>
         )}

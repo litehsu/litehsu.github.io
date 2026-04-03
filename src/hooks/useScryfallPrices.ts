@@ -51,6 +51,7 @@ export function useScryfallPrices(entries: Priceable[]): PriceMap {
             usd: data.prices?.usd ?? null,
             usd_foil: data.prices?.usd_foil ?? null,
             usd_etched: data.prices?.usd_etched ?? null,
+            tcgplayer_url: data.purchase_uris?.tcgplayer ?? null,
           }));
         } catch {
           // skip on error, leave cell empty

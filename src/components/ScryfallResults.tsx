@@ -125,9 +125,13 @@ export function ScryfallResults({ cardName, printings, loading, ckPrices, jpyToU
                     {loadingPrice ? (
                       <Skeleton variant="text" width={60} />
                     ) : prices?.usd ? (
-                      <Typography variant="body2" fontWeight={600}>${prices.usd}</Typography>
+                      <a href={p.tcgplayerUrl ?? prices.tcgplayer_url ?? undefined} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Typography variant="body2" fontWeight={600} sx={{ '&:hover': { textDecoration: 'underline' } }}>${prices.usd}</Typography>
+                      </a>
                     ) : p.finishes.includes('nonfoil') ? (
-                      <Typography variant="caption" color="warning.main">Sold Out</Typography>
+                      <a href={p.tcgplayerUrl ?? undefined} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <Typography variant="caption" color="warning.main" sx={{ '&:hover': { textDecoration: 'underline' } }}>Sold Out</Typography>
+                      </a>
                     ) : (
                       <Typography variant="caption" color="text.disabled">—</Typography>
                     )}
@@ -136,14 +140,20 @@ export function ScryfallResults({ cardName, printings, loading, ckPrices, jpyToU
                     {loadingPrice ? (
                       <Skeleton variant="text" width={60} />
                     ) : prices?.usd_foil ? (
-                      <Typography variant="body2" fontWeight={600}>${prices.usd_foil}</Typography>
+                      <a href={p.tcgplayerUrl ?? prices.tcgplayer_url ?? undefined} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Typography variant="body2" fontWeight={600} sx={{ '&:hover': { textDecoration: 'underline' } }}>${prices.usd_foil}</Typography>
+                      </a>
                     ) : prices?.usd_etched ? (
-                      <Stack spacing={0}>
-                        <Typography variant="body2" fontWeight={600}>${prices.usd_etched}</Typography>
-                        <Typography variant="caption" color="text.secondary">etched</Typography>
-                      </Stack>
+                      <a href={p.tcgplayerUrl ?? prices.tcgplayer_url ?? undefined} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Stack spacing={0}>
+                          <Typography variant="body2" fontWeight={600} sx={{ '&:hover': { textDecoration: 'underline' } }}>${prices.usd_etched}</Typography>
+                          <Typography variant="caption" color="text.secondary">etched</Typography>
+                        </Stack>
+                      </a>
                     ) : p.finishes.some((f) => f === 'foil' || f === 'etched') ? (
-                      <Typography variant="caption" color="warning.main">Sold Out</Typography>
+                      <a href={p.tcgplayerUrl ?? undefined} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+                        <Typography variant="caption" color="warning.main" sx={{ '&:hover': { textDecoration: 'underline' } }}>Sold Out</Typography>
+                      </a>
                     ) : (
                       <Typography variant="caption" color="text.disabled">—</Typography>
                     )}

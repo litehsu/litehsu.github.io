@@ -7,6 +7,7 @@ export interface ScryfallPrinting {
   collectorNumber: string;
   printingLabel: string;
   finishes: string[];
+  tcgplayerUrl: string | null;
   // shape matches Priceable in useScryfallPrices
   variation: { set: string };
 }
@@ -56,6 +57,7 @@ export function useScryfallPrintings(
             collectorNumber: c.collector_number as string,
             printingLabel: derivePrintingLabel(c),
             finishes: (c.finishes as string[]) ?? [],
+            tcgplayerUrl: (c.purchase_uris as Record<string, string> | undefined)?.tcgplayer ?? null,
             variation: { set },
           };
         });
