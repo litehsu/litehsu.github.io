@@ -32,3 +32,24 @@ export interface PriceData {
   lastScraped: string;
   cards: CardEntry[];
 }
+
+export type BuyCondition = 'NM' | 'LP' | 'MP' | 'HP' | 'DMG';
+
+export const CONDITION_PCTS: Record<BuyCondition, number> = {
+  NM: 0.9, LP: 0.7, MP: 0.5, HP: 0.4, DMG: 0.3,
+};
+
+export interface BuyItem {
+  id: string;
+  cardName: string;
+  set: string;
+  setName: string;
+  printing: string;
+  foilType: 'non-foil' | 'foil';
+  scryfallId: string;
+  basePrice: number;
+  condition: BuyCondition;
+  overridePrice: number | null;
+  price: number;
+  quantity: number;
+}

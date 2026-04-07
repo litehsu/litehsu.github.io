@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import Typography from '@mui/material/Typography';
 import Chip from '@mui/material/Chip';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { CardImage } from './CardImage';
 import { PriceDisplay } from './PriceDisplay';
-import type { CardEntry, ScryfallPrices } from '../types';
+import { BuyDialog } from './BuyDialog';
+import type { CardEntry, ScryfallPrices, BuyItem } from '../types';
 import type { CKPricesMap } from '../hooks/useCKPrices';
 
 interface CardVariationProps {
@@ -14,13 +17,15 @@ interface CardVariationProps {
   scryfallPrices: Map<string, ScryfallPrices>;
   jpyToUsd: number | null;
   ckPrices: CKPricesMap | null;
+  onBuy: (item: Omit<BuyItem, 'id'>) => void;
 }
 
 function cacheKey(set: string, collectorNumber: string) {
   return `${set.toLowerCase()}-${collectorNumber}`;
 }
 
-export function CardVariation({ entry, scryfallPrices, jpyToUsd, ckPrices }: CardVariationProps) {
+export function CardVariation({ entry, scryfallPrices, jpyToUsd, ckPrices, onBuy }: CardVariationProps) {
+  const [buyOpen, setBuyOpen] = useState(false);
   const { variation, priceHistory, cardName } = entry;
   const current = priceHistory[0];
   const previous = priceHistory.length > 1 ? priceHistory[1] : null;
@@ -110,6 +115,24 @@ export function CardVariation({ entry, scryfallPrices, jpyToUsd, ckPrices }: Car
         ) : (
           <Typography variant="caption" color="text.disabled">—</Typography>
         )}
+      </TableCell>
+      <TableCell>
+        <Button size="small" variant="outlined" color="primary" onClick={() => setBuyOpen(true)}>
+          Buy
+        </Button>
+        <BuyDialog
+          open={buyOpen}
+          onClose={() => setBuyOpen(false)}
+          onAdd={onBuy}
+          cardName={cardName}
+          set={variation.set}
+          setName={variation.setName}
+          printing={variation.printing}
+          foilType={variation.foilType as 'non-foil' | 'foil'}
+          scryfallId={entry.scryfallId}
+          ckBuyPrice={ckPrice ?? null}
+          tcgPrice={marketPrice ? parseFloat(marketPrice) : null}
+        />
       </TableCell>
     </TableRow>
   );

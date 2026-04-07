@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import { CardVariation } from './CardVariation';
 import { useScryfallPrices } from '../hooks/useScryfallPrices';
 import type { CKPricesMap } from '../hooks/useCKPrices';
-import type { CardEntry } from '../types';
+import type { CardEntry, BuyItem } from '../types';
 
 interface CardResultsProps {
   cardName: string;
@@ -18,13 +18,14 @@ interface CardResultsProps {
   lastScraped: string;
   jpyToUsd: number | null;
   ckPrices: CKPricesMap | null;
+  onBuy: (item: Omit<BuyItem, 'id'>) => void;
 }
 
 function formatTimestamp(ts: string): string {
   return new Date(ts).toLocaleString();
 }
 
-export function CardResults({ cardName, entries, lastScraped, jpyToUsd, ckPrices }: CardResultsProps) {
+export function CardResults({ cardName, entries, lastScraped, jpyToUsd, ckPrices, onBuy }: CardResultsProps) {
   const scryfallPrices = useScryfallPrices(entries);
 
   if (entries.length === 0) {
@@ -61,6 +62,7 @@ export function CardResults({ cardName, entries, lastScraped, jpyToUsd, ckPrices
               <TableCell>US Buy Price</TableCell>
               <TableCell>TCGPlayer Market</TableCell>
               <TableCell>Richard</TableCell>
+              <TableCell>Buy</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -71,6 +73,7 @@ export function CardResults({ cardName, entries, lastScraped, jpyToUsd, ckPrices
                 scryfallPrices={scryfallPrices}
                 jpyToUsd={jpyToUsd}
                 ckPrices={ckPrices}
+                onBuy={onBuy}
               />
             ))}
           </TableBody>

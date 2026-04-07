@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,10 +12,13 @@ import Chip from '@mui/material/Chip';
 import CircularProgress from '@mui/material/CircularProgress';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import { CardImage } from './CardImage';
+import { BuyDialog } from './BuyDialog';
 import { useScryfallPrices, cacheKey } from '../hooks/useScryfallPrices';
 import type { ScryfallPrinting } from '../hooks/useScryfallPrintings';
 import type { CKPricesMap } from '../hooks/useCKPrices';
+import type { BuyItem } from '../types';
 
 interface ScryfallResultsProps {
   cardName: string;
@@ -22,6 +26,7 @@ interface ScryfallResultsProps {
   loading: boolean;
   ckPrices: CKPricesMap | null;
   jpyToUsd: number | null;
+  onBuy: (item: Omit<BuyItem, 'id'>) => void;
 }
 
 function CKPriceCell({ scryfallId, foilType, ckPrices, jpyToUsd }: {
@@ -46,7 +51,49 @@ function CKPriceCell({ scryfallId, foilType, ckPrices, jpyToUsd }: {
   );
 }
 
-export function ScryfallResults({ cardName, printings, loading, ckPrices, jpyToUsd }: ScryfallResultsProps) {
+function BuyCell({ cardName, printing, scryfallId, foilType, ckPrices, tcgPrice, setName, set, onBuy }: {
+  cardName: string;
+  printing: ScryfallPrinting;
+  scryfallId: string;
+  foilType: 'non-foil' | 'foil';
+  ckPrices: CKPricesMap | null;
+  tcgPrice: string | null | undefined;
+  setName: string;
+  set: string;
+  onBuy: (item: Omit<BuyItem, 'id'>) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ckPrice = ckPrices?.get(scryfallId)?.[foilType] ?? null;
+  const tcg = tcgPrice ? parseFloat(tcgPrice) : null;
+
+  // Only show buy button if we have at least a base price to work with
+  if (ckPrices !== null && ckPrice === null && tcg === null) {
+    return <Typography variant="caption" color="text.disabled">—</Typography>;
+  }
+
+  return (
+    <>
+      <Button size="small" variant="outlined" color="primary" onClick={() => setOpen(true)} disabled={ckPrices === null}>
+        Buy
+      </Button>
+      <BuyDialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onAdd={onBuy}
+        cardName={cardName}
+        set={set}
+        setName={setName}
+        printing={printing.printingLabel}
+        foilType={foilType}
+        scryfallId={scryfallId}
+        ckBuyPrice={ckPrice}
+        tcgPrice={tcg}
+      />
+    </>
+  );
+}
+
+export function ScryfallResults({ cardName, printings, loading, ckPrices, jpyToUsd, onBuy }: ScryfallResultsProps) {
   const scryfallPrices = useScryfallPrices(printings);
 
   if (loading) {
@@ -83,6 +130,8 @@ export function ScryfallResults({ cardName, printings, loading, ckPrices, jpyToU
               <TableCell>TCGPlayer Foil</TableCell>
               <TableCell>CK Buy (Non-foil)</TableCell>
               <TableCell>CK Buy (Foil)</TableCell>
+              <TableCell>Buy NF</TableCell>
+              <TableCell>Buy Foil</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -163,6 +212,36 @@ export function ScryfallResults({ cardName, printings, loading, ckPrices, jpyToU
                   </TableCell>
                   <TableCell>
                     <CKPriceCell scryfallId={p.scryfallId} foilType="foil" ckPrices={ckPrices} jpyToUsd={jpyToUsd} />
+                  </TableCell>
+                  <TableCell>
+                    {p.finishes.includes('nonfoil') && (
+                      <BuyCell
+                        cardName={cardName}
+                        printing={p}
+                        scryfallId={p.scryfallId}
+                        foilType="non-foil"
+                        ckPrices={ckPrices}
+                        tcgPrice={prices?.usd}
+                        setName={p.setName}
+                        set={p.set}
+                        onBuy={onBuy}
+                      />
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    {p.finishes.some((f) => f === 'foil' || f === 'etched') && (
+                      <BuyCell
+                        cardName={cardName}
+                        printing={p}
+                        scryfallId={p.scryfallId}
+                        foilType="foil"
+                        ckPrices={ckPrices}
+                        tcgPrice={prices?.usd_foil ?? prices?.usd_etched}
+                        setName={p.setName}
+                        set={p.set}
+                        onBuy={onBuy}
+                      />
+                    )}
                   </TableCell>
                 </TableRow>
               );

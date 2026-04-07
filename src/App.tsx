@@ -7,16 +7,21 @@ import Alert from '@mui/material/Alert';
 import { SearchInput } from './components/SearchInput';
 import { CardResults } from './components/CardResults';
 import { ScryfallResults } from './components/ScryfallResults';
+import { BuyCartButton } from './components/BuyCartButton';
+import { BuyCartSummary } from './components/BuyCartSummary';
 import { usePriceData } from './hooks/usePriceData';
 import { useScryfallPrintings } from './hooks/useScryfallPrintings';
 import { useExchangeRate } from './hooks/useExchangeRate';
 import { useCKPrices } from './hooks/useCKPrices';
+import { useBuyList } from './hooks/useBuyList';
 
 export default function App() {
   const { data, loading, error } = usePriceData();
   const jpyToUsd = useExchangeRate();
   const ckPrices = useCKPrices();
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
+  const [cartOpen, setCartOpen] = useState(false);
+  const { items, addItem, updateItem, removeItem, clearAll, total } = useBuyList();
 
   const matchingEntries = selectedCard && data
     ? data.cards.filter(
@@ -40,6 +45,17 @@ export default function App() {
         JP vs US buy price comparison
       </Typography>
 
+      <BuyCartButton total={total} count={items.length} onClick={() => setCartOpen(true)} />
+      <BuyCartSummary
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+        items={items}
+        total={total}
+        onUpdate={updateItem}
+        onRemove={removeItem}
+        onClearAll={clearAll}
+      />
+
       {error && (
         <Alert severity="error" sx={{ mb: 3 }}>
           {error}
@@ -61,6 +77,7 @@ export default function App() {
               lastScraped={data?.lastScraped ?? ''}
               jpyToUsd={jpyToUsd}
               ckPrices={ckPrices}
+              onBuy={addItem}
             />
           )}
 
@@ -71,6 +88,7 @@ export default function App() {
               loading={printingsLoading}
               ckPrices={ckPrices}
               jpyToUsd={jpyToUsd}
+              onBuy={addItem}
             />
           )}
         </>
