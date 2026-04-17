@@ -18,7 +18,7 @@ import { useBuyList } from './hooks/useBuyList';
 export default function App() {
   const { data, loading, error } = usePriceData();
   const jpyToUsd = useExchangeRate();
-  const ckPrices = useCKPrices();
+  const { prices: ckPrices, updatedAt: ckUpdatedAt } = useCKPrices();
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [cartOpen, setCartOpen] = useState(false);
   const { items, addItem, updateItem, removeItem, clearAll, total } = useBuyList();
@@ -36,14 +36,27 @@ export default function App() {
     !selectedCard || hasJsonData
   );
 
+  const ckUpdatedLabel = ckUpdatedAt
+    ? new Date(ckUpdatedAt).toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+    : null;
+
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
-      <Typography variant="h4" fontWeight={700} gutterBottom>
-        Hibiki MTG Price Tracker
-      </Typography>
-      <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
-        JP vs US buy price comparison
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 2, mb: 0 }}>
+        <Typography variant="h4" fontWeight={700}>
+          Hibiki MTG Price Tracker
+        </Typography>
+      </Box>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 3 }}>
+        <Typography variant="body2" color="text.secondary">
+          JP vs US buy price comparison
+        </Typography>
+        {ckUpdatedLabel && (
+          <Typography variant="caption" color="text.disabled">
+            · CK prices as of {ckUpdatedLabel}
+          </Typography>
+        )}
+      </Box>
 
       <BuyCartButton total={total} count={items.length} onClick={() => setCartOpen(true)} />
       <BuyCartSummary

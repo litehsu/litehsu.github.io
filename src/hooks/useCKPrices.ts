@@ -5,8 +5,9 @@ import { useState, useEffect } from 'react';
 export type CKFoilPrices = { 'non-foil'?: number; foil?: number };
 export type CKPricesMap = Map<string, CKFoilPrices>;
 
-export function useCKPrices(): CKPricesMap | null {
+export function useCKPrices(): { prices: CKPricesMap | null; updatedAt: string | null } {
   const [prices, setPrices] = useState<CKPricesMap | null>(null);
+  const [updatedAt, setUpdatedAt] = useState<string | null>(null);
 
   useEffect(() => {
     fetch('/data/ck-prices.json')
@@ -14,9 +15,10 @@ export function useCKPrices(): CKPricesMap | null {
       .then(d => {
         const map: CKPricesMap = new Map(Object.entries(d.prices ?? {}));
         setPrices(map);
+        setUpdatedAt(d.updated ?? null);
       })
       .catch(() => {});
   }, []);
 
-  return prices;
+  return { prices, updatedAt };
 }
