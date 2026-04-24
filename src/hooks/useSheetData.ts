@@ -10,26 +10,27 @@ export type TabName = 'mtg' | 'pokemon' | 'other';
 
 type AllData = Record<TabName, SheetRow[]>;
 
-const TABS: TabName[] = ['mtg', 'pokemon', 'other'];
+const EMPTY: AllData = { mtg: [], pokemon: [], other: [] };
 
 export function useSheetData() {
-  const [data, setData] = useState<AllData>({ mtg: [], pokemon: [], other: [] });
+  const [data, setData] = useState<AllData>(EMPTY);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchAll() {
       try {
-        const results = await Promise.all(
-          TABS.map(tab => fetch(`/api/sheets/${tab}`).then(r => {
-            if (!r.ok) throw new Error(`Failed to load ${tab}`);
-            return r.json() as Promise<SheetRow[]>;
-          }))
-        );
-        setData({ mtg: results[0], pokemon: results[1], other: results[2] });
+        const res = await fetch('/data/buy-list.json');
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const json = await res.json() as AllData;
+        setData({
+          mtg: json.mtg ?? [],
+          pokemon: json.pokemon ?? [],
+          other: json.other ?? [],
+        });
         setError(null);
       } catch (e) {
-        setError(e instanceof Error ? e.message : 'Failed to load sheet data');
+        setError(e instanceof Error ? e.message : 'Failed to load');
       } finally {
         setLoading(false);
       }

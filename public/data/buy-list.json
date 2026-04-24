@@ -1,0 +1,41 @@
+{
+  "mtg": [
+    {
+      "name": "Quantum Riddler",
+      "set": "EOE",
+      "price": "33"
+    },
+    {
+      "name": "Elesh Norn, Mother of Machines",
+      "set": "ONE",
+      "price": "28"
+    },
+    {
+      "name": "Ocelot Pride",
+      "set": "MH3",
+      "price": "30"
+    },
+    {
+      "name": "Volcanic Island",
+      "set": "REV",
+      "price": "590"
+    },
+    {
+      "name": "Underground Sea",
+      "set": "REV",
+      "price": "1040"
+    },
+    {
+      "name": "Phlage, Titan of Fire's Fury",
+      "set": "MH3",
+      "price": "12"
+    },
+    {
+      "name": "Vorinclex (showcase)",
+      "set": "KHM",
+      "price": "33"
+    }
+  ],
+  "pokemon": [],
+  "other": []
+}
