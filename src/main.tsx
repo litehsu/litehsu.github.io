@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import BuyListDisplay from './BuyListDisplay.tsx'
 
-const isDisplay = window.location.pathname === '/display'
+const isDisplay = window.location.hash === '#display' || window.location.pathname === '/display'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
