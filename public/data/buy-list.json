@@ -17,13 +17,13 @@
     },
     {
       "name": "Volcanic Island",
-      "set": "REV",
+      "set": "3ED",
       "price": "590"
     },
     {
       "name": "Underground Sea",
-      "set": "REV",
-      "price": "1040"
+      "set": "3ED",
+      "price": "770"
     },
     {
       "name": "Phlage, Titan of Fire's Fury",
@@ -34,6 +34,81 @@
       "name": "Vorinclex (showcase)",
       "set": "KHM",
       "price": "33"
+    },
+    {
+      "name": "Black Lotus",
+      "set": "UNL",
+      "price": "16500"
+    },
+    {
+      "name": "Time Twister",
+      "set": "UNL",
+      "price": "4800"
+    },
+    {
+      "name": "Mox Sapphire",
+      "set": "UNL",
+      "price": "4500"
+    },
+    {
+      "name": "Mox Jet",
+      "set": "UNL",
+      "price": "4100"
+    },
+    {
+      "name": "Time Walk",
+      "set": "UNL",
+      "price": "3700"
+    },
+    {
+      "name": "Ancestral Recall",
+      "set": "UNL",
+      "price": "3700"
+    },
+    {
+      "name": "Tundra",
+      "set": "3ED",
+      "price": "370"
+    },
+    {
+      "name": "Guide of Soul",
+      "set": "MH3",
+      "price": "1.5"
+    },
+    {
+      "name": "Ajani, Nacatl Pariah (foil)",
+      "set": "MH3",
+      "price": "10"
+    },
+    {
+      "name": "The Legend of Roku",
+      "set": "TLA",
+      "price": "8"
+    },
+    {
+      "name": "Arena of Glory",
+      "set": "MH3",
+      "price": "9"
+    },
+    {
+      "name": "Elegant Parlor",
+      "set": "MKM",
+      "price": "8"
+    },
+    {
+      "name": "Ragavan, Nimble Pilferer",
+      "set": "MH2",
+      "price": "25"
+    },
+    {
+      "name": "Phelia, Exuberant Shepherd",
+      "set": "MH3",
+      "price": "4"
+    },
+    {
+      "name": "Meticulous Archive",
+      "set": "MKM",
+      "price": "7"
     }
   ],
   "pokemon": [],
