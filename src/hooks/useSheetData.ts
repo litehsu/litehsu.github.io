@@ -23,10 +23,11 @@ export function useSheetData() {
         const res = await fetch('/data/buy-list.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json() as AllData;
+        const sort = (rows: SheetRow[]) => [...rows].sort((a, b) => a.name.localeCompare(b.name));
         setData({
-          mtg: json.mtg ?? [],
-          pokemon: json.pokemon ?? [],
-          other: json.other ?? [],
+          mtg: sort(json.mtg ?? []),
+          pokemon: sort(json.pokemon ?? []),
+          other: sort(json.other ?? []),
         });
         setError(null);
       } catch (e) {
