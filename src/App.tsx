@@ -51,6 +51,9 @@ export default function App() {
         <Typography variant="body2" color="text.secondary">
           JP vs US buy price comparison
         </Typography>
+        <Typography variant="body2">
+          <a href="/#display" target="_blank" rel="noreferrer">Buy List Display →</a>
+        </Typography>
         {ckUpdatedLabel && (
           <Typography variant="caption" color="text.disabled">
             · CK prices as of {ckUpdatedLabel}
