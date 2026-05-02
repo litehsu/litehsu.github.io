@@ -18,12 +18,12 @@
     {
       "name": "Volcanic Island",
       "set": "3ED",
-      "price": "590"
+      "price": "700"
     },
     {
       "name": "Underground Sea",
       "set": "3ED",
-      "price": "770"
+      "price": "880"
     },
     {
       "name": "Phlage, Titan of Fire's Fury",
@@ -61,14 +61,14 @@
       "price": "3700"
     },
     {
-      "name": "Ancestral Recall",
-      "set": "UNL",
-      "price": "3700"
+      "name": "Savannah",
+      "set": "3ED",
+      "price": "350"
     },
     {
       "name": "Tundra",
       "set": "3ED",
-      "price": "370"
+      "price": "540"
     },
     {
       "name": "Guide of Soul",
@@ -88,7 +88,7 @@
     {
       "name": "Arena of Glory",
       "set": "MH3",
-      "price": "9"
+      "price": "8"
     },
     {
       "name": "Elegant Parlor",
@@ -101,16 +101,538 @@
       "price": "25"
     },
     {
-      "name": "Phelia, Exuberant Shepherd",
-      "set": "MH3",
-      "price": "4"
+      "name": "Plateau",
+      "set": "3ED",
+      "price": "310"
     },
     {
       "name": "Meticulous Archive",
       "set": "MKM",
       "price": "7"
+    },
+    {
+      "name": "Solitude",
+      "set": "MH2",
+      "price": "28"
     }
   ],
-  "pokemon": [],
+  "pokemon": [
+    {
+      "set": "ASC",
+      "name": "Mega Gengar ex",
+      "number": "284/217",
+      "price": "$1,120.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Pikachu ex",
+      "number": "276/217",
+      "price": "$860.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Dragonite ex",
+      "number": "290/217",
+      "price": "$660.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Charizard Y ex",
+      "number": "294/217",
+      "price": "$480.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Team Rocket's Mewtwo ex",
+      "number": "281/217\t",
+      "price": "$380.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Pikachu ex",
+      "number": "277/217",
+      "price": "$388.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Dragonite ex",
+      "number": "295/217\t",
+      "price": "$259.20"
+    },
+    {
+      "set": "ASC",
+      "name": "N's Zoroark ex",
+      "number": "286/217",
+      "price": "$152.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Lillie's Clefairy ex",
+      "number": "280/217",
+      "price": "$156.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Feraligatr ex",
+      "number": "274/217",
+      "price": "$132.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Froslass ex",
+      "number": "275/217\t",
+      "price": "$80.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Meganium ex",
+      "number": "272/217",
+      "price": "$78.40"
+    },
+    {
+      "set": "ASC",
+      "name": "Steven's Metagross ex",
+      "number": "289/217",
+      "price": "$73.60"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Gengar ex",
+      "number": "269/217",
+      "price": "$75.20"
+    },
+    {
+      "set": "ASC",
+      "name": "Psyduck",
+      "number": "226/217",
+      "price": "$72.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Marnie's Grimmsnarl ex",
+      "number": "287/217",
+      "price": "$64.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Emboar ex",
+      "number": "273/217",
+      "price": "$61.60"
+    },
+    {
+      "set": "ASC",
+      "name": "Fezandipiti ex",
+      "number": "288/217",
+      "price": "$56.25"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Scrafty ex",
+      "number": "285/217\t",
+      "price": "$56.80"
+    },
+    {
+      "set": "ASC",
+      "name": "Iono's Bellibolt ex",
+      "number": "279/217",
+      "price": "$56.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Hawlucha ex",
+      "number": "283/217",
+      "price": "$54.40"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Diancie ex",
+      "number": "282/217",
+      "price": "$56.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Dragonite ex",
+      "number": "271/217",
+      "price": "$48.80"
+    },
+    {
+      "set": "ASC",
+      "name": "Canari",
+      "number": "291/217",
+      "price": "$36.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Mega Eelektross ex",
+      "number": "278/217",
+      "price": "$29.60"
+    },
+    {
+      "set": "ASC",
+      "name": "Iris's Fighting Spirit",
+      "number": "292/217",
+      "price": "$32.00"
+    },
+    {
+      "set": "ASC",
+      "name": "Surfer",
+      "number": "293/217",
+      "price": "$21.75"
+    },
+    {
+      "set": "ASC",
+      "name": "Team Rocket's Mimikyu",
+      "number": "238/217\t",
+      "price": "$23.20"
+    },
+    {
+      "set": "ASC",
+      "name": "Erika's Tangela",
+      "number": "218/217",
+      "price": "$15.75"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Mega Charizard X ex",
+      "number": "125/094",
+      "price": "$680.00"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Mega Charizard X ex",
+      "number": "130/094\t",
+      "price": "$272.00"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Mega Charizard X ex",
+      "number": "109/094",
+      "price": "$23.25"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Dawn",
+      "number": "129/094",
+      "price": "$22.50"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Mega Sharpedo ex",
+      "number": "127/094",
+      "price": "$16.50"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Rotom ex",
+      "number": "126/094",
+      "price": "$13.50"
+    },
+    {
+      "set": "Phantasmal Flames ",
+      "name": "Mega Lopunny ex",
+      "number": "128/094",
+      "price": "$13.50"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Lucario ex",
+      "number": "188/132",
+      "price": "$208.00"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Gardevoir ex",
+      "number": "187/132",
+      "price": "$182.40"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Lucario ex",
+      "number": "179/132",
+      "price": "$152.00"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Gardevoir ex",
+      "number": "178/132",
+      "price": "$152.00"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Venusaur ex",
+      "number": "177/132",
+      "price": "$116.00"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Latias ex",
+      "number": "181/132",
+      "price": "$66.40"
+    },
+    {
+      "set": "MEG",
+      "name": "Lillie's Determination",
+      "number": "184/132",
+      "price": "$55.20"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Absol ex",
+      "number": "180/132",
+      "price": "$51.20"
+    },
+    {
+      "set": "MEG",
+      "name": "Mega Kangaskhan ex",
+      "number": "182/132",
+      "price": "$49.60"
+    },
+    {
+      "set": "MEG",
+      "name": "Acerola's Mischief",
+      "number": "183/132",
+      "price": "$26.40"
+    },
+    {
+      "set": "MEG",
+      "name": "Bulbasaur",
+      "number": "133/132",
+      "price": "$16.00"
+    },
+    {
+      "set": "MEG",
+      "name": "Wally's Compassion",
+      "number": "186/132",
+      "price": "$15.00"
+    },
+    {
+      "set": "MEG",
+      "name": "Lillie's Determination",
+      "number": "169/132",
+      "price": "$15.75"
+    },
+    {
+      "set": "MEG",
+      "name": "Ivysaur",
+      "number": "134/132",
+      "price": "$14.25"
+    },
+    {
+      "set": "BLK",
+      "name": "Victini",
+      "number": "171/086",
+      "price": "$409.60"
+    },
+    {
+      "set": "BLK",
+      "name": "Zekrom ex",
+      "number": "172/086",
+      "price": "$368.00"
+    },
+    {
+      "set": "BLK",
+      "name": "Zekrom ex",
+      "number": "166/086",
+      "price": "$191.20"
+    },
+    {
+      "set": "BLK",
+      "name": "Seismitoad",
+      "number": "105/086",
+      "price": "$137.60"
+    },
+    {
+      "set": "BLK",
+      "name": "Kyurem ex",
+      "number": "165/086",
+      "price": "$53.60"
+    },
+    {
+      "set": "BLK",
+      "name": "Haxorus",
+      "number": "147/086",
+      "price": "$48.00"
+    },
+    {
+      "set": "BLK",
+      "name": "N's Plan",
+      "number": "170/086",
+      "price": "$48.00"
+    },
+    {
+      "set": "BLK",
+      "name": "Serperior ex",
+      "number": "164/086",
+      "price": "$36.00"
+    },
+    {
+      "set": "BLK",
+      "name": "Krookodile",
+      "number": "137/086",
+      "price": "$33.75"
+    },
+    {
+      "set": "BLK",
+      "name": "Genesect ex",
+      "number": "169/086",
+      "price": "$32.80"
+    },
+    {
+      "set": "BLK",
+      "name": "Volcarona",
+      "number": "100/086",
+      "price": "$28.50"
+    },
+    {
+      "set": "BLK",
+      "name": "Lilligant",
+      "number": "092/086",
+      "price": "$27.00"
+    },
+    {
+      "set": "BLK",
+      "name": "Meloetta ex",
+      "number": "167/086",
+      "price": "$28.80"
+    },
+    {
+      "set": "BLK",
+      "name": "Amoonguss",
+      "number": "096/086",
+      "price": "$25.50"
+    },
+    {
+      "set": "BLK",
+      "name": "Dwebble",
+      "number": "129/086",
+      "price": "$25.60"
+    },
+    {
+      "set": "BLK",
+      "name": "Solosis",
+      "number": "118/086",
+      "price": "$21.00"
+    },
+    {
+      "set": "BLK",
+      "name": "Audino",
+      "number": "151/086",
+      "price": "$18.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Reshiram ex",
+      "number": "173/086",
+      "price": "$326.11"
+    },
+    {
+      "set": "WHT",
+      "name": "Victini",
+      "number": "172/086",
+      "price": "$325.57"
+    },
+    {
+      "set": "WHT",
+      "name": "Reshiram ex",
+      "number": "166/086",
+      "price": "$152.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Hydreigon ex",
+      "number": "169/086",
+      "price": "$60.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Hilda",
+      "number": "171/086",
+      "price": "$43.50"
+    },
+    {
+      "set": "WHT",
+      "name": "Chandelure",
+      "number": "103/086",
+      "price": "$36.75"
+    },
+    {
+      "set": "WHT",
+      "name": "Keldeo ex",
+      "number": "167/086",
+      "price": "$39.75"
+    },
+    {
+      "set": "WHT",
+      "name": "Zoroark",
+      "number": "143/086",
+      "price": "$41.60"
+    },
+    {
+      "set": "WHT",
+      "name": "Oshawott",
+      "number": "105/086",
+      "price": "$40.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Samurott",
+      "number": "107/086",
+      "price": "$30.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Stoutland",
+      "number": "156/086",
+      "price": "$30.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Emboar",
+      "number": "098/086",
+      "price": "$30.92"
+    },
+    {
+      "set": "WHT",
+      "name": "Sawsbuck",
+      "number": "092/086",
+      "price": "$27.75"
+    },
+    {
+      "set": "WHT",
+      "name": "Liepard",
+      "number": "137/086",
+      "price": "$23.25"
+    },
+    {
+      "set": "WHT",
+      "name": "Vanilluxe",
+      "number": "113/086",
+      "price": "$22.50"
+    },
+    {
+      "set": "WHT",
+      "name": "Jellicent ex",
+      "number": "168/086",
+      "price": "$20.25"
+    },
+    {
+      "set": "WHT",
+      "name": "Lillipup",
+      "number": "154/086",
+      "price": "$29.60"
+    },
+    {
+      "set": "WHT",
+      "name": "Virizion",
+      "number": "095/086",
+      "price": "$18.00"
+    },
+    {
+      "set": "WHT",
+      "name": "Zorua",
+      "number": "142/086",
+      "price": "$18.75"
+    }
+  ],
   "other": []
 }

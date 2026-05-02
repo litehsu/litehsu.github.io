@@ -4,6 +4,7 @@ export interface SheetRow {
   name: string;
   set: string;
   price: string;
+  number?: string;
 }
 
 export type TabName = 'mtg' | 'pokemon' | 'other';
@@ -23,11 +24,18 @@ export function useSheetData() {
         const res = await fetch('/data/buy-list.json');
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const json = await res.json() as AllData;
-        const sort = (rows: SheetRow[]) => [...rows].sort((a, b) => a.name.localeCompare(b.name));
+        const sortByName = (rows: SheetRow[]) => [...rows].sort((a, b) => a.name.localeCompare(b.name));
+        const sortPokemon = (rows: SheetRow[]) => [...rows].sort((a, b) => {
+          const setCmp = (a.set ?? '').localeCompare(b.set ?? '');
+          if (setCmp !== 0) return setCmp;
+          const numA = parseInt((a.number ?? '').split('/')[0], 10) || 0;
+          const numB = parseInt((b.number ?? '').split('/')[0], 10) || 0;
+          return numA - numB;
+        });
         setData({
-          mtg: sort(json.mtg ?? []),
-          pokemon: sort(json.pokemon ?? []),
-          other: sort(json.other ?? []),
+          mtg: sortByName(json.mtg ?? []),
+          pokemon: sortPokemon(json.pokemon ?? []),
+          other: sortByName(json.other ?? []),
         });
         setError(null);
       } catch (e) {
