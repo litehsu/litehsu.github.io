@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSheetData } from './hooks/useSheetData';
 import type { SheetRow, TabName } from './hooks/useSheetData';
 
-const TABS: TabName[] = ['mtg', 'pokemon', 'other'];
-const TAB_DURATION = 10_000;
+const TABS: TabName[] = ['mtg', 'pokemon'];
+const TAB_DURATIONS: Record<TabName, number> = { mtg: 10_000, pokemon: 15_000, other: 10_000 };
 
 const TAB_CONFIG: Record<TabName, { label: string; color: string; headerBg: string }> = {
   mtg:     { label: 'Magic: The Gathering', color: '#1a237e', headerBg: '#e8eaf6' },
@@ -119,9 +119,11 @@ export default function BuyListDisplay() {
     const start = Date.now();
 
     const progressInterval = setInterval(() => {
-      setProgress(Math.min(((Date.now() - start) / TAB_DURATION) * 100, 100));
+      const duration = TAB_DURATIONS[TABS[tabIndex]];
+      setProgress(Math.min(((Date.now() - start) / duration) * 100, 100));
     }, 50);
 
+    const duration = TAB_DURATIONS[TABS[tabIndex]];
     const tabTimer = setTimeout(() => {
       setVisible(false);
       setTimeout(() => {
@@ -129,7 +131,7 @@ export default function BuyListDisplay() {
         setProgress(0);
         setVisible(true);
       }, 300);
-    }, TAB_DURATION);
+    }, duration);
 
     return () => {
       clearInterval(progressInterval);
@@ -188,6 +190,9 @@ export default function BuyListDisplay() {
         padding: '12px 24px',
         borderBottom: '2px solid #eeeeee',
         flexShrink: 0,
+        height: 88,
+        boxSizing: 'border-box',
+        overflow: 'hidden',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           <img src="/hibichan.png" alt="Hibiki" style={{ height: 64, objectFit: 'contain' }} />
